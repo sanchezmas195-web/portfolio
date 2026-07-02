@@ -138,9 +138,16 @@ Para personalizar el portfolio:
 
 ## 📧 Contacto
 
-El formulario de contacto actualmente es visual. Para hacerlo funcional:
-1. Integra un servicio como Formspree, Netlify Forms, o EmailJS
-2. O crea un backend con Node.js para procesar los formularios
+El contacto principal es a través de Discord (`arnau_124`). El botón de la sección de
+contacto y de redes sociales copia el usuario al portapapeles automáticamente.
+
+## 🖼️ Galería del bot
+
+Para mostrar tus capturas del bot en la galería con lightbox:
+1. Coloca las imágenes en la carpeta `images/`
+2. Añade sus nombres en la constante `GALLERY_IMAGES` dentro de `script.js`
+
+Mientras la lista esté vacía, la galería muestra placeholders elegantes.
 
 ---
 
