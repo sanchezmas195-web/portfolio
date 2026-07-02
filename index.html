@@ -3,45 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arnau - Desarrollador especializado en Discord Bots, servidores de Minecraft, desarrollo web y sistemas de redes. Creo herramientas, bots y soluciones para comunidades y networks.">
-    <meta name="keywords" content="Arnau, desarrollador, Discord Bots, Minecraft, Networks, desarrollo web, bots, servidores, plugins, hosting">
+    <meta name="description" content="Arnau - Desarrollador profesional especializado en Discord Bots, servidores y Networks de Minecraft (Velocity, BungeeCord, Paper, Spigot), plugins personalizados, APIs, dashboards y desarrollo web.">
+    <meta name="keywords" content="Arnau, desarrollador, Discord Bots, Minecraft, Networks, Velocity, BungeeCord, Paper, Spigot, plugins, APIs, dashboards, desarrollo web, backend">
     <meta name="author" content="Arnau">
+    <meta name="theme-color" content="#0A0E27">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://arnau.dev/">
     <meta property="og:title" content="Arnau | Discord & Minecraft Developer">
-    <meta property="og:description" content="Desarrollador especializado en Discord Bots, servidores de Minecraft, desarrollo web y sistemas de redes. Creo herramientas, bots y soluciones para comunidades y networks.">
+    <meta property="og:description" content="Desarrollador profesional especializado en Discord Bots, Networks de Minecraft, plugins personalizados, APIs y desarrollo web.">
     <meta property="og:image" content="https://arnau.dev/og-image.png">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://arnau.dev/">
     <meta property="twitter:title" content="Arnau | Discord & Minecraft Developer">
-    <meta property="twitter:description" content="Desarrollador especializado en Discord Bots, servidores de Minecraft, desarrollo web y sistemas de redes. Creo herramientas, bots y soluciones para comunidades y networks.">
+    <meta property="twitter:description" content="Desarrollador profesional especializado en Discord Bots, Networks de Minecraft, plugins personalizados, APIs y desarrollo web.">
     <meta property="twitter:image" content="https://arnau.dev/og-image.png">
-    
+
     <title>Arnau | Discord & Minecraft Developer</title>
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
+
+    <!-- Preconnect / Preload -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -49,124 +54,120 @@
     <!-- Loader -->
     <div class="loader" id="loader">
         <div class="loader-content">
-            <div class="loader-spinner"></div>
-            <p class="loader-text">Cargando...</p>
+            <div class="loader-logo">A</div>
+            <div class="loader-bar"><span></span></div>
+            <p class="loader-text">Cargando experiencia<span class="loader-dots"></span></p>
         </div>
     </div>
-    
-    <!-- Cursor personalizado -->
-    <div class="cursor" id="cursor"></div>
-    <div class="cursor-follower" id="cursor-follower"></div>
-    
-    <!-- Partículas de fondo -->
-    <canvas id="particles"></canvas>
-    
-    <!-- Gradientes de fondo -->
-    <div class="gradient-bg">
+
+    <!-- Cursor premium -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+
+    <!-- Fondo animado -->
+    <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+    <!-- Capa de gradientes / orbes -->
+    <div class="gradient-bg" aria-hidden="true">
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
         <div class="gradient-orb orb-3"></div>
+        <div class="grid-overlay"></div>
     </div>
-    
+
     <!-- Navegación -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">
-                <i class="fas fa-code"></i> Arnau
+            <a href="#hero" class="nav-logo" data-cursor="link">
+                <span class="nav-logo-mark">A</span> Arnau
             </a>
             <ul class="nav-menu" id="nav-menu">
-                <li class="nav-item">
-                    <a href="#hero" class="nav-link">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">Sobre mí</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#services" class="nav-link">Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Proyectos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#technologies" class="nav-link">Tecnologías</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contacto</a>
-                </li>
+                <li class="nav-item"><a href="#hero" class="nav-link" data-cursor="link">Inicio</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link" data-cursor="link">Sobre mí</a></li>
+                <li class="nav-item"><a href="#experience" class="nav-link" data-cursor="link">Experiencia</a></li>
+                <li class="nav-item"><a href="#projects" class="nav-link" data-cursor="link">Proyectos</a></li>
+                <li class="nav-item"><a href="#technologies" class="nav-link" data-cursor="link">Tecnologías</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link" data-cursor="link">Contacto</a></li>
             </ul>
-            <div class="nav-toggle" id="nav-toggle">
-                <i class="fas fa-bars"></i>
+            <a href="#contact" class="nav-cta" data-cursor="link"><i class="fas fa-paper-plane"></i> Contrátame</a>
+            <div class="nav-toggle" id="nav-toggle" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">
-                    <i class="fas fa-sparkles"></i>
+                <div class="hero-badge reveal">
+                    <span class="status-dot"></span>
                     <span>Disponible para proyectos</span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="hero-greeting">Hola, soy</span>
-                    <span class="hero-name">Arnau</span>
+                    <span class="hero-greeting reveal">Hola, soy</span>
+                    <span class="hero-name" data-text="Arnau">Arnau</span>
                 </h1>
-                <div class="hero-typing-label">Especializado en:</div>
-                <div class="hero-typing">
-                    <span class="typing-text"></span>
-                    <span class="typing-cursor">|</span>
+                <div class="hero-typing reveal">
+                    <span class="typing-text"></span><span class="typing-cursor">|</span>
                 </div>
-                <p class="hero-description">
-                    Desarrollador especializado en Discord Bots, servidores de Minecraft, desarrollo web y sistemas de redes. Creo herramientas, bots y soluciones para comunidades y networks.
+                <p class="hero-description reveal">
+                    Desarrollador profesional especializado en <strong>Discord</strong>, <strong>Minecraft</strong> y
+                    <strong>desarrollo web</strong>. Creo bots, plugins, networks completas, APIs y dashboards a medida
+                    para comunidades y networks de gran escala.
                 </p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Contrátame
-                    </a>
-                    <a href="#projects" class="btn btn-secondary">
+                <div class="hero-buttons reveal">
+                    <a href="#projects" class="btn btn-primary" data-cursor="link">
                         <i class="fas fa-rocket"></i> Ver Proyectos
                     </a>
-                    <a href="https://twitch.tv/Arnau24_123" target="_blank" class="btn btn-glass">
+                    <a href="#contact" class="btn btn-secondary" data-cursor="link">
+                        <i class="fas fa-paper-plane"></i> Contrátame
+                    </a>
+                    <a href="https://twitch.tv/Arnau24_124" target="_blank" rel="noopener" class="btn btn-glass" data-cursor="link">
                         <i class="fab fa-twitch"></i> Twitch
                     </a>
                 </div>
-                <div class="hero-scroll">
-                    <a href="#about" class="scroll-down">
-                        <i class="fas fa-chevron-down"></i>
-                    </a>
+                <div class="hero-chips reveal">
+                    <span class="chip"><i class="fab fa-discord"></i> Discord Bots</span>
+                    <span class="chip"><i class="fas fa-cube"></i> Minecraft</span>
+                    <span class="chip"><i class="fas fa-network-wired"></i> Networks</span>
+                    <span class="chip"><i class="fas fa-bolt"></i> Velocity</span>
+                    <span class="chip"><i class="fas fa-code"></i> Backend</span>
                 </div>
             </div>
         </div>
+        <a href="#stats" class="hero-scroll" aria-label="Bajar">
+            <span class="mouse"><span class="wheel"></span></span>
+        </a>
     </section>
 
     <!-- Estadísticas -->
     <section class="stats" id="stats">
         <div class="stats-container">
-            <div class="stat-card">
+            <div class="stat-card glass reveal">
                 <i class="fas fa-users stat-icon"></i>
-                <h3 class="stat-number">50+</h3>
+                <h3 class="stat-number" data-count="50" data-suffix="+">0</h3>
                 <p class="stat-label">Miembros</p>
             </div>
-            <div class="stat-card">
-                <i class="fas fa-project-diagram stat-icon"></i>
-                <h3 class="stat-number">10+</h3>
+            <div class="stat-card glass reveal">
+                <i class="fas fa-diagram-project stat-icon"></i>
+                <h3 class="stat-number" data-count="10" data-suffix="+">0</h3>
                 <p class="stat-label">Proyectos</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass reveal">
                 <i class="fas fa-calendar stat-icon"></i>
-                <h3 class="stat-number">2022</h3>
+                <h3 class="stat-number" data-count="2022">0</h3>
                 <p class="stat-label">Desde</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass reveal">
                 <i class="fas fa-code stat-icon"></i>
-                <h3 class="stat-number">∞</h3>
+                <h3 class="stat-number">Miles</h3>
                 <p class="stat-label">Líneas de código</p>
             </div>
-            <div class="stat-card">
+            <div class="stat-card glass reveal">
                 <i class="fas fa-fire stat-icon"></i>
-                <h3 class="stat-number">Diario</h3>
-                <p class="stat-label">Desarrollo</p>
+                <h3 class="stat-number">Cada día</h3>
+                <p class="stat-label">Aprendiendo</p>
             </div>
         </div>
     </section>
@@ -174,163 +175,129 @@
     <!-- Sobre mí -->
     <section class="about" id="about">
         <div class="about-container">
-            <h2 class="section-title">
-                <i class="fas fa-user"></i> Sobre Mí
-            </h2>
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Sobre mí</span>
+                <h2 class="section-title">Quién soy</h2>
+            </div>
             <div class="about-content">
-                <div class="about-image">
-                    <div class="about-avatar">
-                        <i class="fas fa-laptop-code"></i>
+                <div class="about-image reveal">
+                    <div class="about-avatar tilt">
+                        <span class="avatar-glyph">A</span>
+                        <div class="avatar-ring"></div>
+                    </div>
+                    <div class="about-badges">
+                        <span class="about-badge"><i class="fab fa-discord"></i> Discord</span>
+                        <span class="about-badge"><i class="fas fa-cube"></i> Minecraft</span>
+                        <span class="about-badge"><i class="fas fa-globe"></i> Web</span>
                     </div>
                 </div>
                 <div class="about-text">
-                    <h3 class="about-subtitle">Hola, soy Arnau</h3>
-                    <p class="about-description">
-                        Soy un desarrollador apasionado por la programación y la tecnología. Me encanta crear proyectos para Discord y Minecraft, aprender nuevas tecnologías y seguir mejorando cada día.
+                    <h3 class="about-subtitle reveal">Desarrollador de Discord, Minecraft y Web</h3>
+                    <p class="about-description reveal">
+                        Soy Arnau, desarrollador especializado en Discord, Minecraft y desarrollo web. Me apasiona crear
+                        herramientas, bots y sistemas para comunidades grandes que necesitan soluciones fiables y bien construidas.
                     </p>
-                    <p class="about-description">
-                        Tengo una novia y una rutina estable. Intento ser productivo todos los días, mejorar como desarrollador y disfrutar creando proyectos que ayuden a otras personas.
+                    <p class="about-description reveal">
+                        Tengo una rutina estable, intento mejorar cada día y siempre estoy aprendiendo nuevas tecnologías
+                        para ofrecer proyectos de mayor calidad. Trabajo con seriedad, cuido los detalles y me tomo cada
+                        proyecto como si fuera propio.
                     </p>
                     <div class="about-cards">
-                        <div class="about-card">
-                            <i class="fas fa-heart about-card-icon"></i>
-                            <h4>Relaciones</h4>
-                            <p>Tengo una novia que me apoya en mi camino como desarrollador.</p>
+                        <div class="about-card glass tilt reveal">
+                            <i class="fas fa-bullseye about-card-icon"></i>
+                            <h4>Enfoque profesional</h4>
+                            <p>Código limpio, mantenible y pensado para networks de gran escala.</p>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card glass tilt reveal">
                             <i class="fas fa-calendar-check about-card-icon"></i>
-                            <h4>Rutina</h4>
-                            <p>Mantengo una rutina estable para ser productivo cada día.</p>
+                            <h4>Constancia</h4>
+                            <p>Rutina estable y desarrollo continuo, mejorando un poco cada día.</p>
                         </div>
-                        <div class="about-card">
+                        <div class="about-card glass tilt reveal">
                             <i class="fas fa-chart-line about-card-icon"></i>
-                            <h4>Mejora</h4>
-                            <p>Siempre busco aprender y mejorar como desarrollador.</p>
+                            <h4>Mejora continua</h4>
+                            <p>Siempre aprendiendo nuevas tecnologías para elevar la calidad.</p>
                         </div>
-                        <div class="about-card">
-                            <i class="fas fa-hands-helping about-card-icon"></i>
-                            <h4>Ayuda</h4>
-                            <p>Disfruto creando proyectos que ayuden a otras personas.</p>
+                        <div class="about-card glass tilt reveal">
+                            <i class="fas fa-handshake about-card-icon"></i>
+                            <h4>Compromiso</h4>
+                            <p>Comunicación clara y entregas serias con cada comunidad.</p>
                         </div>
-                    </div>
-                    <div class="about-skills">
-                        <span class="skill-tag"><i class="fab fa-discord"></i> Discord Bots</span>
-                        <span class="skill-tag"><i class="fas fa-cube"></i> Minecraft</span>
-                        <span class="skill-tag"><i class="fas fa-network-wired"></i> Networks</span>
-                        <span class="skill-tag"><i class="fas fa-plug"></i> Plugins</span>
-                        <span class="skill-tag"><i class="fas fa-server"></i> Hosting</span>
-                        <span class="skill-tag"><i class="fas fa-globe"></i> Web Dev</span>
-                        <span class="skill-tag"><i class="fas fa-cogs"></i> APIs</span>
-                        <span class="skill-tag"><i class="fas fa-tachometer-alt"></i> Paneles</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Lo que hago -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <h2 class="section-title">
-                <i class="fas fa-cogs"></i> Lo Que Hago
-            </h2>
-            <p class="section-subtitle">Servicios profesionales para comunidades y networks</p>
+    <!-- Experiencia / Lo que hago -->
+    <section class="experience" id="experience">
+        <div class="experience-container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Mi experiencia</span>
+                <h2 class="section-title">Lo que puedo desarrollar</h2>
+                <p class="section-subtitle">Soluciones profesionales de principio a fin para comunidades y networks</p>
+            </div>
+
             <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fab fa-discord"></i>
-                    </div>
-                    <h3 class="service-title">Discord Bots</h3>
-                    <p class="service-description">Bots de Discord personalizados con moderación, economía, autoroles, música y sistemas avanzados.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Moderación avanzada</li>
-                        <li><i class="fas fa-check"></i> Sistemas de economía</li>
-                        <li><i class="fas fa-check"></i> Integraciones API</li>
-                    </ul>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fab fa-discord"></i></div>
+                    <h3 class="service-title">Bots de Discord</h3>
+                    <p class="service-description">Bots a medida: moderación avanzada, economía, tickets, autoroles, dashboards y sistemas únicos.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3 class="service-title">Minecraft Servers</h3>
-                    <p class="service-description">Desarrollo de servidores de Minecraft únicos con plugins personalizados y configuraciones optimizadas.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Plugins custom</li>
-                        <li><i class="fas fa-check"></i> Configuración avanzada</li>
-                        <li><i class="fas fa-check"></i> Optimización de rendimiento</li>
-                    </ul>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-plug"></i></div>
+                    <h3 class="service-title">Plugins personalizados</h3>
+                    <p class="service-description">Plugins para Paper, Spigot y Velocity con funcionalidades y APIs propias.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-cube"></i></div>
+                    <h3 class="service-title">Servidores completos</h3>
+                    <p class="service-description">Configuración y desarrollo de servidores de Minecraft optimizados y estables.</p>
+                </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-network-wired"></i></div>
                     <h3 class="service-title">Minecraft Networks</h3>
-                    <p class="service-description">Configuración y desarrollo de networks de Minecraft con BungeeCord, Velocity y sistemas de proxy.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> BungeeCord/Velocity</li>
-                        <li><i class="fas fa-check"></i> Sistemas de IP</li>
-                        <li><i class="fas fa-check"></i> Balanceo de carga</li>
-                    </ul>
+                    <p class="service-description">Networks completas con proxys, múltiples modos y comunicación entre servidores.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-plug"></i>
-                    </div>
-                    <h3 class="service-title">Plugins</h3>
-                    <p class="service-description">Desarrollo de plugins personalizados para Spigot, Paper, Bukkit y Velocity.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Plugins custom</li>
-                        <li><i class="fas fa-check"></i> Integraciones</li>
-                        <li><i class="fas fa-check"></i> APIs personalizadas</li>
-                    </ul>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="service-title">Proxys (Velocity / BungeeCord)</h3>
+                    <p class="service-description">Configuración de proxys, balanceo y enrutamiento entre servidores.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-server"></i>
-                    </div>
-                    <h3 class="service-title">Hosting</h3>
-                    <p class="service-description">Configuración y gestión de hosting para servidores de Minecraft y bots de Discord.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Servidores dedicados</li>
-                        <li><i class="fas fa-check"></i> VPS optimizados</li>
-                        <li><i class="fas fa-check"></i> Gestión de recursos</li>
-                    </ul>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-user-shield"></i></div>
+                    <h3 class="service-title">Sistemas de permisos</h3>
+                    <p class="service-description">Rangos, grupos y permisos personalizados para toda la network.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3 class="service-title">Desarrollo Web</h3>
-                    <p class="service-description">Aplicaciones web, dashboards, paneles de control y sistemas de administración.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Dashboards modernos</li>
-                        <li><i class="fas fa-check"></i> Paneles de control</li>
-                        <li><i class="fas fa-check"></i> APIs REST</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
-                    </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-diagram-project"></i></div>
                     <h3 class="service-title">Sistemas de IP</h3>
-                    <p class="service-description">Sistemas de redirección de IP y gestión de dominios para networks.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Redirección dinámica</li>
-                        <li><i class="fas fa-check"></i> Gestión de dominios</li>
-                        <li><i class="fas fa-check"></i> SSL/TLS</li>
-                    </ul>
+                    <p class="service-description">Redirección de IPs, gestión de dominios y SSL para tu network.</p>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
                     <h3 class="service-title">Automatizaciones</h3>
-                    <p class="service-description">Sistemas de automatización para tareas repetitivas y gestión de comunidades.</p>
-                    <ul class="service-features">
-                        <li><i class="fas fa-check"></i> Webhooks</li>
-                        <li><i class="fas fa-check"></i> Integraciones</li>
-                        <li><i class="fas fa-check"></i> Scripts automáticos</li>
-                    </ul>
+                    <p class="service-description">Webhooks, integraciones y scripts para automatizar la gestión de tu comunidad.</p>
+                </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3 class="service-title">APIs</h3>
+                    <p class="service-description">APIs REST propias para conectar bots, webs, paneles y servicios externos.</p>
+                </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-table-columns"></i></div>
+                    <h3 class="service-title">Paneles web & Dashboards</h3>
+                    <p class="service-description">Paneles de control y dashboards para gestionar servidores y bots en tiempo real.</p>
+                </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3 class="service-title">Desarrollo web</h3>
+                    <p class="service-description">Webs modernas, rápidas y responsive para tu comunidad o proyecto.</p>
+                </div>
+                <div class="service-card glass tilt reveal">
+                    <div class="service-icon"><i class="fas fa-sliders"></i></div>
+                    <h3 class="service-title">Sistemas personalizados</h3>
+                    <p class="service-description">¿Necesitas algo a medida? Diseño e implemento el sistema que tu proyecto requiere.</p>
                 </div>
             </div>
         </div>
@@ -339,56 +306,49 @@
     <!-- Timeline -->
     <section class="timeline" id="timeline">
         <div class="timeline-container">
-            <h2 class="section-title">
-                <i class="fas fa-history"></i> Mi Evolución
-            </h2>
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Trayectoria</span>
+                <h2 class="section-title">Mi evolución</h2>
+            </div>
             <div class="timeline-content">
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2022</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">Inicio en Programación</h3>
-                        <p class="timeline-description">Comencé mi viaje en el mundo de la programación, descubriendo mi pasión por crear cosas con código.</p>
+                    <div class="timeline-box glass">
+                        <h3 class="timeline-title">Comienzo en la programación</h3>
+                        <p class="timeline-description">Descubro mi pasión por crear cosas con código y empiezo a formarme.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2023</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">Primeros Proyectos</h3>
-                        <p class="timeline-description">Desarrollé mis primeros proyectos web y comencé a explorar el desarrollo de bots de Discord.</p>
+                    <div class="timeline-box glass">
+                        <h3 class="timeline-title">Primeros bots de Discord</h3>
+                        <p class="timeline-description">Desarrollo mis primeros bots y sistemas para comunidades de Discord.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2024</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">Especialización en Discord</h3>
-                        <p class="timeline-description">Me especialicé en el desarrollo de bots de Discord con funcionalidades avanzadas y sistemas de moderación.</p>
+                    <div class="timeline-box glass">
+                        <h3 class="timeline-title">Primeros proyectos de Minecraft</h3>
+                        <p class="timeline-description">Doy el salto a Minecraft: plugins, configuración de servidores y proxys.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2025</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">Minecraft & Networks</h3>
-                        <p class="timeline-description">Comencé a desarrollar servidores de Minecraft y sistemas de networks con BungeeCord y Velocity.</p>
+                    <div class="timeline-box glass">
+                        <h3 class="timeline-title">Desarrollo de MineLoon Network</h3>
+                        <p class="timeline-description">Construyo MineLoon Network y su bot, desarrollado completamente por mí.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
+                <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
                     <div class="timeline-date">2026</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">MineLoon Network</h3>
-                        <p class="timeline-description">Creé MineLoon Network, mi proyecto principal con un bot de Discord desarrollado completamente por mí.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-date">Presente</div>
-                    <div class="timeline-content-box">
-                        <h3 class="timeline-title">Desarrollo Continuo</h3>
-                        <p class="timeline-description">Sigo aprendiendo nuevas tecnologías y mejorando mis proyectos para ofrecer soluciones profesionales.</p>
+                    <div class="timeline-box glass">
+                        <h3 class="timeline-title">Desarrollador especializado</h3>
+                        <p class="timeline-description">Especializado en Discord y Minecraft, ofreciendo soluciones profesionales.</p>
                     </div>
                 </div>
             </div>
@@ -398,158 +358,91 @@
     <!-- Proyectos -->
     <section class="projects" id="projects">
         <div class="projects-container">
-            <h2 class="section-title">
-                <i class="fas fa-folder-open"></i> Mis Proyectos
-            </h2>
-            <p class="section-subtitle">Proyectos destacados y desarrollos en curso</p>
-            
-            <!-- MineLoon Network - Proyecto Principal -->
-            <div class="featured-project">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Proyectos</span>
+                <h2 class="section-title">Mi proyecto principal</h2>
+                <p class="section-subtitle">Proyecto destacado y desarrollos en curso</p>
+            </div>
+
+            <!-- MineLoon Network -->
+            <div class="featured-project glass reveal">
                 <div class="featured-project-content">
-                    <div class="featured-project-image">
-                        <div class="project-placeholder">
+                    <div class="featured-project-visual">
+                        <div class="featured-logo">
                             <i class="fab fa-discord"></i>
-                            <span>MineLoon Bot</span>
                         </div>
+                        <span class="featured-logo-label">MineLoon Bot</span>
                     </div>
                     <div class="featured-project-info">
                         <div class="featured-badge">
-                            <i class="fas fa-star"></i>
-                            <span>Proyecto Principal</span>
+                            <i class="fas fa-star"></i><span>Proyecto Principal</span>
                         </div>
                         <h3 class="featured-project-title">MineLoon Network</h3>
                         <p class="featured-project-description">
-                            Bot de Discord desarrollado por mí con sistemas avanzados de moderación, economía, autoroles, configuración avanzada, paneles, integraciones y comandos únicos. Proyecto en constante desarrollo.
+                            Network de Minecraft con un bot de Discord <strong>desarrollado completamente por mí</strong>.
+                            Incluye moderación, economía, autoroles, configuración avanzada, paneles, integraciones y
+                            comandos únicos. Un proyecto en constante desarrollo.
                         </p>
                         <div class="featured-features">
-                            <div class="featured-feature">
-                                <i class="fas fa-shield-alt"></i>
-                                <span>Moderación</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-coins"></i>
-                                <span>Economía</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-cogs"></i>
-                                <span>Sistemas Personalizados</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-user-tag"></i>
-                                <span>Autoroles</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-sliders-h"></i>
-                                <span>Configuración Avanzada</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-th-large"></i>
-                                <span>Paneles</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-link"></i>
-                                <span>Integraciones</span>
-                            </div>
-                            <div class="featured-feature">
-                                <i class="fas fa-terminal"></i>
-                                <span>Comandos Únicos</span>
-                            </div>
-                        </div>
-                        <div class="featured-stats">
-                            <div class="featured-stat">
-                                <span class="stat-number">50+</span>
-                                <span class="stat-label">Comandos</span>
-                            </div>
-                            <div class="featured-stat">
-                                <span class="stat-number">24/7</span>
-                                <span class="stat-label">Online</span>
-                            </div>
-                            <div class="featured-stat">
-                                <span class="stat-number">1000+</span>
-                                <span class="stat-label">Usuarios</span>
-                            </div>
+                            <div class="featured-feature"><i class="fas fa-shield-halved"></i><span>Moderación</span></div>
+                            <div class="featured-feature"><i class="fas fa-coins"></i><span>Economía</span></div>
+                            <div class="featured-feature"><i class="fas fa-user-tag"></i><span>Autoroles</span></div>
+                            <div class="featured-feature"><i class="fas fa-sliders"></i><span>Config. avanzada</span></div>
+                            <div class="featured-feature"><i class="fas fa-table-columns"></i><span>Paneles</span></div>
+                            <div class="featured-feature"><i class="fas fa-link"></i><span>Integraciones</span></div>
+                            <div class="featured-feature"><i class="fas fa-terminal"></i><span>Comandos únicos</span></div>
+                            <div class="featured-feature"><i class="fas fa-network-wired"></i><span>Network</span></div>
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Galería del Bot -->
                 <div class="project-gallery">
-                    <h4 class="gallery-title">Galería del Bot</h4>
-                    <div class="gallery-grid">
-                        <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-image"></i>
-                                <span>Comandos</span>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-image"></i>
-                                <span>Moderación</span>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-image"></i>
-                                <span>Economía</span>
-                            </div>
-                        </div>
-                        <div class="gallery-item">
-                            <div class="gallery-placeholder">
-                                <i class="fas fa-image"></i>
-                                <span>Panel</span>
-                            </div>
-                        </div>
+                    <h4 class="gallery-title"><i class="fas fa-images"></i> Galería del Bot</h4>
+                    <div class="gallery-grid" id="gallery-grid">
+                        <!-- Los items se generan desde script.js con las imágenes de /images -->
                     </div>
+                    <p class="gallery-hint" id="gallery-hint">
+                        <i class="fas fa-circle-info"></i>
+                        Añade tus capturas del bot en la carpeta <code>images/</code> para mostrarlas aquí.
+                    </p>
                 </div>
             </div>
-            
-            <!-- Otros Proyectos -->
+
+            <!-- Otros proyectos -->
             <div class="projects-grid">
-                <div class="project-card coming-soon">
-                    <div class="project-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
+                <div class="project-card glass tilt coming-soon reveal">
+                    <div class="project-icon"><i class="fas fa-cube"></i></div>
                     <h3 class="project-title">Minecraft Network</h3>
-                    <p class="project-description">Network de Minecraft con múltiples modos y sistemas personalizados.</p>
+                    <p class="project-description">Network con múltiples modos, proxys y sistemas personalizados.</p>
                     <div class="project-tags">
                         <span class="project-tag">Minecraft</span>
-                        <span class="project-tag">BungeeCord</span>
                         <span class="project-tag">Velocity</span>
+                        <span class="project-tag">Paper</span>
                     </div>
-                    <span class="coming-soon-badge">
-                        <i class="fas fa-clock"></i> En Desarrollo
-                    </span>
+                    <span class="coming-soon-badge"><i class="fas fa-clock"></i> En desarrollo</span>
                 </div>
-                <div class="project-card coming-soon">
-                    <div class="project-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
+                <div class="project-card glass tilt coming-soon reveal">
+                    <div class="project-icon"><i class="fas fa-table-columns"></i></div>
                     <h3 class="project-title">Panel de Control</h3>
-                    <p class="project-description">Dashboard para gestión de servidores y bots.</p>
+                    <p class="project-description">Dashboard para gestión de servidores y bots en tiempo real.</p>
                     <div class="project-tags">
-                        <span class="project-tag">React</span>
                         <span class="project-tag">Node.js</span>
-                        <span class="project-tag">WebSocket</span>
+                        <span class="project-tag">API</span>
+                        <span class="project-tag">Web</span>
                     </div>
-                    <span class="coming-soon-badge">
-                        <i class="fas fa-clock"></i> Próximamente
-                    </span>
+                    <span class="coming-soon-badge"><i class="fas fa-clock"></i> Próximamente</span>
                 </div>
-                <div class="project-card coming-soon">
-                    <div class="project-icon">
-                        <i class="fas fa-plug"></i>
-                    </div>
+                <div class="project-card glass tilt coming-soon reveal">
+                    <div class="project-icon"><i class="fas fa-plug"></i></div>
                     <h3 class="project-title">Plugins Custom</h3>
-                    <p class="project-description">Colección de plugins personalizados para servidores de Minecraft.</p>
+                    <p class="project-description">Colección de plugins personalizados para servidores y networks.</p>
                     <div class="project-tags">
                         <span class="project-tag">Java</span>
                         <span class="project-tag">Spigot</span>
                         <span class="project-tag">Paper</span>
                     </div>
-                    <span class="coming-soon-badge">
-                        <i class="fas fa-clock"></i> Próximamente
-                    </span>
+                    <span class="coming-soon-badge"><i class="fas fa-clock"></i> Próximamente</span>
                 </div>
             </div>
         </div>
@@ -558,112 +451,58 @@
     <!-- Tecnologías -->
     <section class="technologies" id="technologies">
         <div class="technologies-container">
-            <h2 class="section-title">
-                <i class="fas fa-tools"></i> Tecnologías
-            </h2>
-            <p class="section-subtitle">Stack tecnológico que utilizo</p>
-            
-            <h3 class="tech-category">Tecnologías que domino</h3>
-            <div class="technologies-grid">
-                <div class="tech-card">
-                    <i class="fab fa-html5 tech-icon"></i>
-                    <h3 class="tech-name">HTML5</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-css3-alt tech-icon"></i>
-                    <h3 class="tech-name">CSS3</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-js tech-icon"></i>
-                    <h3 class="tech-name">JavaScript</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-node-js tech-icon"></i>
-                    <h3 class="tech-name">Node.js</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-python tech-icon"></i>
-                    <h3 class="tech-name">Python</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-database tech-icon"></i>
-                    <h3 class="tech-name">MySQL</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-git-alt tech-icon"></i>
-                    <h3 class="tech-name">Git</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-github tech-icon"></i>
-                    <h3 class="tech-name">GitHub</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fab fa-discord tech-icon"></i>
-                    <h3 class="tech-name">Discord.js</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-bolt tech-icon"></i>
-                    <h3 class="tech-name">Velocity</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-cube tech-icon"></i>
-                    <h3 class="tech-name">Paper</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-cube tech-icon"></i>
-                    <h3 class="tech-name">Spigot</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-plug tech-icon"></i>
-                    <h3 class="tech-name">APIs</h3>
-                </div>
-                <div class="tech-card">
-                    <i class="fas fa-exchange-alt tech-icon"></i>
-                    <h3 class="tech-name">REST API</h3>
-                </div>
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Stack</span>
+                <h2 class="section-title">Tecnologías</h2>
+                <p class="section-subtitle">Lo que uso realmente y lo que estoy aprendiendo</p>
             </div>
-            
-            <h3 class="tech-category">Próximamente</h3>
+
+            <h3 class="tech-category reveal"><i class="fas fa-circle-check"></i> Tecnologías</h3>
             <div class="technologies-grid">
-                <div class="tech-card coming-soon">
-                    <i class="fab fa-js tech-icon"></i>
-                    <h3 class="tech-name">TypeScript</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fas fa-server tech-icon"></i>
-                    <h3 class="tech-name">Express</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fab fa-php tech-icon"></i>
-                    <h3 class="tech-name">PHP</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fas fa-database tech-icon"></i>
-                    <h3 class="tech-name">MongoDB</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fab fa-docker tech-icon"></i>
-                    <h3 class="tech-name">Docker</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fab fa-linux tech-icon"></i>
-                    <h3 class="tech-name">Linux</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fas fa-cube tech-icon"></i>
-                    <h3 class="tech-name">Bukkit</h3>
-                    <span class="tech-badge">Próximamente</span>
-                </div>
-                <div class="tech-card coming-soon">
-                    <i class="fas fa-wifi tech-icon"></i>
-                    <h3 class="tech-name">WebSockets</h3>
-                    <span class="tech-badge">Próximamente</span>
+                <div class="tech-card glass reveal"><i class="fab fa-js tech-icon"></i><h3 class="tech-name">JavaScript</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-node-js tech-icon"></i><h3 class="tech-name">Node.js</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-discord tech-icon"></i><h3 class="tech-name">Discord.js</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-java tech-icon"></i><h3 class="tech-name">Java</h3></div>
+                <div class="tech-card glass reveal"><i class="fas fa-bolt tech-icon"></i><h3 class="tech-name">Velocity</h3></div>
+                <div class="tech-card glass reveal"><i class="fas fa-cube tech-icon"></i><h3 class="tech-name">Paper</h3></div>
+                <div class="tech-card glass reveal"><i class="fas fa-cube tech-icon"></i><h3 class="tech-name">Spigot</h3></div>
+                <div class="tech-card glass reveal"><i class="fas fa-random tech-icon"></i><h3 class="tech-name">BungeeCord</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-html5 tech-icon"></i><h3 class="tech-name">HTML5</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-css3-alt tech-icon"></i><h3 class="tech-name">CSS3</h3></div>
+                <div class="tech-card glass reveal"><i class="fas fa-database tech-icon"></i><h3 class="tech-name">MySQL</h3></div>
+                <div class="tech-card glass reveal"><i class="fab fa-git-alt tech-icon"></i><h3 class="tech-name">Git</h3></div>
+            </div>
+
+            <h3 class="tech-category reveal"><i class="fas fa-hourglass-half"></i> Próximamente</h3>
+            <div class="technologies-grid">
+                <div class="tech-card glass coming-soon reveal"><i class="fab fa-js tech-icon"></i><h3 class="tech-name">TypeScript</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fas fa-server tech-icon"></i><h3 class="tech-name">Express</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fas fa-leaf tech-icon"></i><h3 class="tech-name">MongoDB</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fab fa-docker tech-icon"></i><h3 class="tech-name">Docker</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fab fa-linux tech-icon"></i><h3 class="tech-name">Linux</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fab fa-react tech-icon"></i><h3 class="tech-name">React</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fas fa-wifi tech-icon"></i><h3 class="tech-name">WebSockets</h3><span class="tech-badge">Próximamente</span></div>
+                <div class="tech-card glass coming-soon reveal"><i class="fas fa-fire tech-icon"></i><h3 class="tech-name">Redis</h3><span class="tech-badge">Próximamente</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servidores donde colaboro -->
+    <section class="servers" id="servers">
+        <div class="servers-container">
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Colaboraciones</span>
+                <h2 class="section-title">Servidores donde colaboro</h2>
+                <p class="section-subtitle">Comunidades en las que participo activamente</p>
+            </div>
+            <div class="servers-grid">
+                <div class="server-card glass tilt reveal">
+                    <div class="server-logo"><i class="fas fa-cube"></i></div>
+                    <div class="server-info">
+                        <h3 class="server-name">Minefun</h3>
+                        <div class="server-role"><i class="fas fa-shield-halved"></i><span>Helper</span></div>
+                        <p class="server-description">Colaboro como Helper, ayudando a la comunidad y moderando el servidor.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -672,64 +511,35 @@
     <!-- Redes Sociales -->
     <section class="social" id="social">
         <div class="social-container">
-            <h2 class="section-title">
-                <i class="fas fa-share-alt"></i> Redes Sociales
-            </h2>
-            <p class="section-subtitle">Sígueme en mis redes</p>
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Redes</span>
+                <h2 class="section-title">Redes sociales</h2>
+                <p class="section-subtitle">Conecta conmigo</p>
+            </div>
             <div class="social-grid">
-                <a href="https://twitch.tv/Arnau24_123" target="_blank" class="social-card twitch">
+                <button type="button" class="social-card discord reveal" id="discord-copy" data-user="arnau_124" data-cursor="link">
+                    <i class="fab fa-discord social-icon"></i>
+                    <h3 class="social-name">Discord</h3>
+                    <p class="social-handle">arnau_124</p>
+                    <span class="social-action"><i class="fas fa-copy"></i> Copiar usuario</span>
+                </button>
+                <a href="https://twitch.tv/Arnau24_124" target="_blank" rel="noopener" class="social-card twitch reveal" data-cursor="link">
                     <i class="fab fa-twitch social-icon"></i>
                     <h3 class="social-name">Twitch</h3>
-                    <p class="social-handle">@Arnau24_123</p>
+                    <p class="social-handle">Arnau24_124</p>
+                    <span class="social-action"><i class="fas fa-arrow-up-right-from-square"></i> Visitar</span>
                 </a>
-                <div class="social-card tiktok coming-soon">
+                <div class="social-card tiktok coming-soon reveal">
                     <i class="fab fa-tiktok social-icon"></i>
                     <h3 class="social-name">TikTok</h3>
                     <p class="social-handle">Próximamente</p>
-                    <span class="coming-soon-badge">
-                        <i class="fas fa-clock"></i> Próximamente
-                    </span>
+                    <span class="coming-soon-badge"><i class="fas fa-clock"></i> Próximamente</span>
                 </div>
-                <div class="social-card youtube coming-soon">
+                <div class="social-card youtube coming-soon reveal">
                     <i class="fab fa-youtube social-icon"></i>
                     <h3 class="social-name">YouTube</h3>
                     <p class="social-handle">Próximamente</p>
-                    <span class="coming-soon-badge">
-                        <i class="fas fa-clock"></i> Próximamente
-                    </span>
-                </div>
-                <a href="#" class="social-card github">
-                    <i class="fab fa-github social-icon"></i>
-                    <h3 class="social-name">GitHub</h3>
-                    <p class="social-handle">@Arnau</p>
-                </a>
-                <a href="https://discord.com/users/arnau_123" target="_blank" class="social-card discord">
-                    <i class="fab fa-discord social-icon"></i>
-                    <h3 class="social-name">Discord</h3>
-                    <p class="social-handle">arnau_123</p>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Servidores donde colaboro -->
-    <section class="servers" id="servers">
-        <div class="servers-container">
-            <h2 class="section-title">
-                <i class="fas fa-server"></i> Servidores donde colaboro
-            </h2>
-            <p class="section-subtitle">Comunidades en las que participo activamente</p>
-            <div class="servers-grid">
-                <div class="server-card">
-                    <div class="server-logo">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3 class="server-name">Minefun</h3>
-                    <div class="server-role">
-                        <i class="fas fa-shield-alt"></i>
-                        <span>Helper</span>
-                    </div>
-                    <p class="server-description">Colaboro como Helper en este servidor de Minecraft, ayudando a la comunidad y moderando el chat.</p>
+                    <span class="coming-soon-badge"><i class="fas fa-clock"></i> Próximamente</span>
                 </div>
             </div>
         </div>
@@ -738,67 +548,26 @@
     <!-- Contacto -->
     <section class="contact" id="contact">
         <div class="contact-container">
-            <h2 class="section-title">
-                <i class="fas fa-envelope"></i> Contacto
-            </h2>
-            <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos</p>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3 class="contact-subtitle">¿Quieres trabajar conmigo?</h3>
-                    <p class="contact-description">
-                        Estoy disponible para proyectos de Discord Bots, servidores de Minecraft, networks y desarrollo web. Si tienes una idea o necesitas ayuda con tu proyecto, no dudes en contactarme.
-                    </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>España</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fab fa-discord"></i>
-                            <span>Arnau#0000</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>contacto@arnau.dev</span>
-                        </div>
-                    </div>
-                    <div class="contact-social">
-                        <a href="https://twitch.tv/Arnau24_124" target="_blank" class="contact-social-link">
-                            <i class="fab fa-twitch"></i>
-                        </a>
-                        <a href="#" class="contact-social-link">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="contact-social-link">
-                            <i class="fab fa-discord"></i>
-                        </a>
-                    </div>
+            <div class="section-head reveal">
+                <span class="section-eyebrow">// Contacto</span>
+                <h2 class="section-title">¿Trabajamos juntos?</h2>
+                <p class="section-subtitle">¿Tienes un proyecto en mente? Hablemos</p>
+            </div>
+            <div class="contact-card glass reveal">
+                <div class="contact-status">
+                    <span class="status-dot"></span> Disponible para nuevos proyectos
                 </div>
-                <div class="contact-form">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <input type="text" placeholder="Tu Nombre" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Tu Email" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Tipo de proyecto</option>
-                                <option value="discord-bot">Discord Bot</option>
-                                <option value="minecraft-server">Minecraft Server</option>
-                                <option value="network">Minecraft Network</option>
-                                <option value="web">Desarrollo Web</option>
-                                <option value="other">Otro</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Cuéntame sobre tu proyecto..." rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Enviar Mensaje
-                        </button>
-                    </form>
+                <p class="contact-description">
+                    Estoy disponible para proyectos de Discord Bots, servidores y networks de Minecraft, plugins,
+                    APIs, dashboards y desarrollo web. Escríbeme por Discord y hablamos de tu proyecto.
+                </p>
+                <div class="contact-actions">
+                    <button type="button" class="btn btn-primary" id="discord-copy-2" data-user="arnau_124" data-cursor="link">
+                        <i class="fab fa-discord"></i> arnau_124 <span class="copy-hint"><i class="fas fa-copy"></i></span>
+                    </button>
+                    <a href="https://twitch.tv/Arnau24_124" target="_blank" rel="noopener" class="btn btn-glass" data-cursor="link">
+                        <i class="fab fa-twitch"></i> Twitch
+                    </a>
                 </div>
             </div>
         </div>
@@ -808,22 +577,14 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <i class="fas fa-code"></i> Arnau
-                </div>
+                <div class="footer-logo"><span class="nav-logo-mark">A</span> Arnau</div>
                 <p class="footer-description">
-                    Desarrollador especializado en Discord Bots, Minecraft Networks y desarrollo web. Creando soluciones para comunidades.
+                    Desarrollador especializado en Discord Bots, Minecraft Networks y desarrollo web.
+                    Creando soluciones profesionales para comunidades.
                 </p>
                 <div class="footer-social">
-                    <a href="https://twitch.tv/Arnau24_124" target="_blank" class="footer-social-link">
-                        <i class="fab fa-twitch"></i>
-                    </a>
-                    <a href="#" class="footer-social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="footer-social-link">
-                        <i class="fab fa-discord"></i>
-                    </a>
+                    <a href="https://twitch.tv/Arnau24_124" target="_blank" rel="noopener" class="footer-social-link" aria-label="Twitch" data-cursor="link"><i class="fab fa-twitch"></i></a>
+                    <button type="button" class="footer-social-link" id="discord-copy-3" data-user="arnau_124" aria-label="Copiar Discord" data-cursor="link"><i class="fab fa-discord"></i></button>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -833,12 +594,23 @@
         </div>
     </footer>
 
-    <!-- Botón Volver Arriba -->
-    <button class="back-to-top" id="back-to-top">
+    <!-- Botón volver arriba -->
+    <button class="back-to-top" id="back-to-top" aria-label="Volver arriba" data-cursor="link">
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Toast -->
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i> <span id="toast-text">Usuario copiado</span></div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Cerrar"><i class="fas fa-times"></i></button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightbox-img" alt="Imagen del bot MineLoon">
+        <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
     <!-- JavaScript -->
-    <script src="script.js"></script>
+    <script defer src="script.js"></script>
 </body>
 </html>
